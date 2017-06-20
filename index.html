@@ -13,6 +13,10 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <!-- Font Awesome CDN -->
+  <link rel=StyleSheet href="custom.css" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
   <script>
     var quotes = [
       ["The ship be sinking.", "Michael Ray Richardson"],
@@ -53,33 +57,34 @@
       document.getElementById('quoteText').innerHTML = quotes[newRandomNumber][0];
       document.getElementById('author').innerHTML = quotes[newRandomNumber][1];
     }
-
-    /*$('#btnNewQuote').click(function() {
-      var newRandomNumber = Math.floor(Math.random() * quotes.length);
-
-      document.getElementById('randomNumber').innerHTML = newRandomNumber;
-      document.getElementById('quoteText').innerHTML = quotes[newRandomNumber][0];
-      document.getElementById('author').innerHTML = quotes[newRandomNumber][1];
-    });*/
   </script>
 
 </head>
 
 
 <body>
-  <div class="container">
-    <div class="row">
+  <div class="container"> <!-- Start of Container -->
+
+    <div class="row"> <!-- Start of Row -->
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <blockquote>
           <p id="randomNumber"></p>
-          <p id="quoteText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <p id="quoteText"></p>
           <footer id="author"></footer>
         </blockquote>
         <button id="btnNewQuote" class="btn-info" onclick="getNewQuote()">New Quote</button>
       </div>
       <div class="col-md-2"></div>
-    </div>
-  </div>
+    </div> <!-- End of Row -->
+
+    <div class="row"> <!-- Start of Row -->
+      <div class="col-md-12">
+        <a href="#" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+      </div>
+    </div> <!-- End of Row -->
+
+  </div> <!-- End of Container -->
+
 </body>
 </html>
