@@ -20,32 +20,32 @@
   <script>
     var quotes = [
       ["The ship be sinking.", "Michael Ray Richardson"],
-      ["I should be a postage stamp. That's the only way I'll ever get licked.", "Muhammad Ali"],
-      ["Why is a puck called a puck? Because /'dirty little bastard/' was already taken.", "Martin Brodeur"],
-      ["I'm the best ever. I'm the most brutal and most vicious and most ruthless champion there's ever been.", "Mike Tyson"],
+      ["I should be a postage stamp. That's the only way I\'ll ever get licked.", "Muhammad Ali"],
+      ["Why is a puck called a puck? Because \'dirty little bastard\' was already taken.", "Martin Brodeur"],
+      ["I\'m the best ever. I\'m the most brutal and most vicious and most ruthless champion there's ever been.", "Mike Tyson"],
       ["Victory is fleeting. Losing is forever.", "Billy Jean King"],
       ["Football is a simple game: 22 men chase a ball for 90 minutes and at the end, the Germans win.", "Gary Lineker"],
-      ["I feel like I'm the best, but you're not going to get me to say that.", "Jerry Rice"],
+      ["I feel like I\'m the best, but you're not going to get me to say that.", "Jerry Rice"],
       ["Do you have any problems, other than you're unemployed, a moron and a dork?", "John McEnroe"],
-      ["Just take the ball and throw it where you want to. Throw strikes. Home plate don't move.", "Satchel Paige"],
+      ["Just take the ball and throw it where you want to. Throw strikes. Home plate don\'t move.", "Satchel Paige"],
       ["When you're rich, you don't write checks. Straight cash, homie.", "Randy Moss"],
-      ["Winning isn't everything, but wanting to is.", "Vince Lombardi"],
-      ["You miss 100% of the shots you don't take.", "Wayne Gretzky"],
+      ["Winning isn\'t everything, but wanting to is.", "Vince Lombardi"],
+      ["You miss 100% of the shots you don\'t take.", "Wayne Gretzky"],
       ["Statistics are like bikinis-they show a lot but not everything.", "Lou Piniella"],
       ["I learned that if you want to make it bad enough, no matter how bad it is, you can make it.", "Gale Sayers"],
-      ["Set your goals high, and don't stop until you get there.", "Bo Jackson"],
+      ["Set your goals high, and don\'t stop until you get there.", "Bo Jackson"],
       ["Nobody roots for Goliath.", "Wilt Chamberlain"],
       ["It took me 17 years to get to 3000 hits in baseball. I did it in one afternoon on the golf course.", "Hank Aaron"],
-      ["When you lose a couple times, it mkaes you realize how hard it is to win.", "Steffi Graf"],
-      ["Close don't count in baseball. Close only counts in horseshoes and grenades.", "Frank Robinson"],
-      ["Age is no barrier. It's a limitation you put on your mind.", "Jackie Joyner-Kersee"],
+      ["When you lose a couple times, it makes you realize how hard it is to win.", "Steffi Graf"],
+      ["Close don\'t count in baseball. Close only counts in horseshoes and grenades.", "Frank Robinson"],
+      ["Age is no barrier. It\'s a limitation you put on your mind.", "Jackie Joyner-Kersee"],
       ["You win some, lose some and wreck some.", "Dale Earnhardt"]
     ];
 
     var randomNumber = Math.floor(Math.random() * quotes.length);
 
     $(document).ready(function() {
-      document.getElementById('randomNumber').innerHTML = randomNumber;
+      document.getElementById('randomNumber').innerHTML = "Quote #" + randomNumber + ":";
       document.getElementById('quoteText').innerHTML = quotes[randomNumber][0];
       document.getElementById('author').innerHTML = quotes[randomNumber][1];
     });
@@ -53,10 +53,18 @@
     function getNewQuote() {
       var newRandomNumber = Math.floor(Math.random() * quotes.length);
 
-      document.getElementById('randomNumber').innerHTML = newRandomNumber;
+      document.getElementById('randomNumber').innerHTML = "Quote #" + newRandomNumber;
       document.getElementById('quoteText').innerHTML = quotes[newRandomNumber][0];
       document.getElementById('author').innerHTML = quotes[newRandomNumber][1];
     }
+
+    function CustomTweetText() {
+      var tweetText = $("#quoteText").text();
+      var authorText = $("#author").text();
+      var htmlText = "https://twitter.com/intent/tweet?text=" + "\"" + tweetText + "\"" + " -" + authorText;
+      $("a.twitter-share-button").attr("href", htmlText);
+    }
+
   </script>
 
 </head>
@@ -65,22 +73,26 @@
 <body>
   <div class="container"> <!-- Start of Container -->
 
-    <div class="row"> <!-- Start of Row -->
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
+    <div class="panel panel-info"> <!-- Start of Panel -->
+      <div class="panel-heading"><i class="fa fa-dribbble" aria-hidden="true"></i> Here is your random sports quote! <i class="fa fa-dribbble" aria-hidden="true"></i></div>
+      <div class="panel-body">
         <blockquote>
           <p id="randomNumber"></p>
           <p id="quoteText"></p>
           <footer id="author"></footer>
         </blockquote>
-        <button id="btnNewQuote" class="btn-info" onclick="getNewQuote()">New Quote</button>
+        <button id="btnNewQuote" class="btn-info" onclick="getNewQuote()">CLICK HERE FOR ANOTHER QUOTE</button>
       </div>
-      <div class="col-md-2"></div>
-    </div> <!-- End of Row -->
+    </div> <!-- End of Panel -->
 
     <div class="row"> <!-- Start of Row -->
       <div class="col-md-12">
-        <a href="#" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+        <a class="twitter-share-button"
+          onclick="CustomTweetText()"
+          href="https://twitter.com/intent/tweet?text=This is my tweet."
+          data-size="large"
+          target="_blank">
+        <img height="90px" width="90px" src="https://cdn0.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/256/social_twitter_button_blue.png"></a>
       </div>
     </div> <!-- End of Row -->
 
